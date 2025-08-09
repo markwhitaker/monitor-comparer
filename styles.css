@@ -30,6 +30,17 @@ section > div {
     padding: 0.25cm;
 }
 
+/* Country flags */
+.countries .flag {
+    float: right;
+    width: 33%;
+    height: auto;
+    object-fit: contain; /* show full flag without cropping */
+    margin-left: 0.25cm;
+    margin-bottom: 0.2cm;
+    border: 1px solid #ddd;
+}
+
 strong {
     font-weight: 700;
     text-transform: uppercase;
