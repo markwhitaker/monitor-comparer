@@ -152,60 +152,247 @@
 
     <section class="mono languages">
         <div>
-            <strong>ABC</strong> is an interactive, high‑level language created at CWI in the 1980s to teach and prototype programs
-            with clarity. It emphasized powerful built‑in data types, structured programming, and readability over
-            low‑level control. Although it never gained widespread industrial adoption—partly due to limited libraries
-            and system access—it profoundly influenced Python’s design through Guido van Rossum’s experience on the ABC
-            project.
+            <strong>ABC</strong> is an interactive, high‑level language created at CWI in the 1980s with the explicit goal of making small
+            programs easy to write, read, and reason about. It bundled powerful, high‑level data types such as associative tables and
+            growable lists, and it emphasized block structure and indentation long before those ideas were mainstream in industry.
+            ABC shipped with an integrated environment—editor, interpreter, and persistent workspace—so learners didn’t wrestle with
+            compilers, linkers, or system APIs. That tight integration fostered rapid prototyping and exploratory programming, a style
+            educators value when teaching problem decomposition. The language intentionally limited access to the underlying operating
+            system and external libraries to protect portability and pedagogical clarity, but those constraints also impeded adoption in
+            production settings where I/O, extensions, and systems hooks are essential. While ABC itself remained a research and
+            teaching tool, its influence radiated through Guido van Rossum’s experience on the project: Python inherited readable
+            indentation, dynamic typing with rich built‑ins, slicing, and a batteries‑included mindset—yet paired these with a robust
+            extension model and ubiquitous libraries. In that sense, ABC provided a blueprint for approachable syntax and powerful data
+            types, while Python supplied the pragmatic glue to connect those ideas to the real world of systems, networking, and the
+            web. ABC’s legacy lives on whenever clarity and immediacy are prioritized in language design.
         </div>
         <div>
-            <strong>BASIC</strong> (Beginner’s All‑purpose Symbolic Instruction Code) was invented at Dartmouth in 1964 to make
-            programming accessible. Home computers popularized countless dialects, from GW‑BASIC to QuickBASIC, and its
-            approachable syntax helped a generation get started. Modern descendants like Visual Basic modernized the
-            ecosystem with GUIs and event‑driven programming.
+            <strong>BASIC</strong> (Beginner’s All‑purpose Symbolic Instruction Code) originated at Dartmouth College in 1964 to democratize
+            computing for students beyond math and engineering. Early time‑sharing systems let undergrads type in programs at terminals
+            and see immediate results, a formative experience for interactive computing. The home‑computer boom of the late 1970s and
+            1980s baked BASIC into ROMs from Apple, Commodore, and Tandy, spawning magazines full of type‑in listings that taught
+            programming through playful graphics and simple games. Dialects proliferated—GW‑BASIC and QuickBASIC on PCs, Sinclair BASIC
+            in the U.K., and countless vendor variants. As software grew more ambitious, structured programming and modules supplanted
+            line numbers and GOTO, and Visual Basic later brought event‑driven GUIs, COM automation, and a huge corporate ecosystem.
+            Today, modern descendants like VB.NET run on the .NET runtime with strong typing, generics, and rich tooling, while the
+            learning ethos survives in block‑based environments like Scratch and microcontroller‑friendly dialects used in education.
+            BASIC’s historical impact isn’t just syntax; it normalized the idea that ordinary people—students, hobbyists, future
+            entrepreneurs—could program a computer and share creations with a community, laying cultural groundwork for the broader
+            software revolution.
         </div>
         <div>
-            <strong>C</strong> emerged at Bell Labs in the 1970s as a portable systems language used to implement Unix. With a small
-            core, explicit memory management, and pointer arithmetic, C maps closely to hardware while remaining
-            portable across architectures. Its influence is everywhere—C++, Objective‑C, C#, Java, Go, and more echo C’s
-            syntax and model of computation.
+            <strong>C</strong> emerged at Bell Labs to implement Unix and quickly became the lingua franca of systems programming. Its small
+            core, well‑defined primitive types, and explicit memory model give programmers control over representation, layout, and
+            performance. Pointers and address arithmetic make powerful abstractions possible—linked structures, memory pools, device
+            interfaces—but demand discipline to avoid undefined behavior, dangling references, and buffer overflows. The standard
+            library is compact but foundational, and successive ISO standards (C89/C90, C99, C11, C17, C23) added features like
+            prototypes, stdint types, atomics, and improved Unicode support. C’s compilation model scales from microcontrollers to
+            supercomputers, enabling portable kernels, embedded firmware, graphics engines, and numerics. Many languages inherit its
+            expression syntax and operator conventions, making C a conceptual substrate for developers worldwide. In modern practice,
+            C is often paired with careful static analysis, sanitizers, and secure coding guidelines to mitigate risk, and it remains a
+            common foreign‑function interface for higher‑level runtimes. Love it or fear it, C’s clarity of cost—and its ubiquity in
+            toolchains, ABIs, and libraries—ensure its enduring relevance.
         </div>
         <div>
-            <strong>D</strong> blends C‑like performance with modern conveniences such as modules, unit tests, ranges, and
-            compile‑time reflection. It offers a garbage collector by default with options for manual control, and it
-            interoperates easily with C. D’s metaprogramming and powerful templates suit high‑performance tools and
-            libraries where expressiveness and speed both matter.
+            <strong>D</strong> set out to modernize systems programming without sacrificing performance. It borrows C‑like syntax where helpful,
+            but layers in memory‑safe slices, ranges, modules, and compile‑time introspection that make generic code pleasant to write.
+            A garbage collector is available by default, yet developers can opt out for manual or reference‑counted control in hot
+            paths. Metaprogramming is a first‑class citizen: templates, mixins, and CTFE (compile‑time function execution) let programs
+            generate optimized code specialized to types and values, while unit tests integrate directly into the language. Interop with
+            C is straightforward, easing adoption for libraries and bindings. D’s vibe sits between C++ and Rust on one axis, and Go or
+            Zig on another—seeking expressiveness without complexity bloat. The ecosystem includes vibe.d for web services, numerical
+            libraries, and game‑adjacent tooling, though its community is smaller than mainstream rivals. For teams needing both speed
+            and rapid iteration, D offers an appealing middle ground where high‑level constructs compile down to tight machine code
+            without endless boilerplate.
         </div>
         <div>
-            <strong>Erlang</strong> is a concurrent, functional language running on the BEAM VM. It champions lightweight processes,
-            message passing, hot code upgrades, and fault tolerance—“let it crash” supervised by OTP frameworks. Telecom
-            and messaging systems adopted Erlang for reliability; today it also powers databases and real‑time services.
+            <strong>Erlang</strong> was built at Ericsson to keep telephone switches running, birthing a model of reliability that reshaped
+            concurrent programming. Processes on the BEAM VM are ultra‑lightweight and isolated; they communicate by message passing,
+            share no memory, and can be spawned by the thousands. Supervisors and OTP behaviors codify fault tolerance—if a worker
+            crashes, let it crash and restart in a known good state. Hot code reloading minimizes downtime, crucial for systems with
+            five‑nines availability targets. Immutable data and functional idioms reduce race conditions, while pattern matching and
+            selective receive make protocols concise and explicit. Erlang quietly powers chat systems, signaling networks, time‑series
+            databases, and queues; Elixir extends the platform with a friendlier syntax and modern tooling while inheriting the same
+            runtime strengths. In a world of distributed microservices, Erlang’s decades‑old lessons—supervision trees, back‑pressure,
+            and resilience by design—feel freshly relevant.
         </div>
         <div>
-            <strong>Fortran</strong>, born in the 1950s, remains a workhorse of scientific and engineering computing. Modern Fortran
-            standards added modules, array programming, and interoperability while keeping performance central. Large
-            simulation codes in climate, physics, and CFD still rely on optimized Fortran compilers.
+            <strong>Fortran</strong> is one of the oldest high‑level languages still thriving, precisely because performance matters in science
+            and engineering. From the earliest FORTRAN IV to modern Fortran 2008/2018, the language evolved to express array operations,
+            modules, and coarrays for parallelism while maintaining a model that compilers can optimize aggressively. Domain codes in
+            climate, weather, ocean modeling, astrophysics, and computational fluid dynamics long ago accumulated millions of lines of
+            tuned Fortran, making continuity and portability paramount. Interoperability with C bridges newer libraries and MPI toolsets,
+            and modern build systems and package efforts are improving ergonomics. The stereotype of archaic punch‑card syntax obscures
+            how current Fortran supports clear, type‑safe numerics with semantics that map predictably to vectorization and cache. As
+            accelerators and heterogeneous clusters proliferate, Fortran remains embedded in solver cores and linear algebra where
+            squeezing every FLOP counts.
         </div>
         <div>
-            <strong>Go</strong> (Golang) is a statically typed, compiled language designed at Google for simplicity and speed. Fast
-            builds, a batteries‑included toolchain, and concurrency via goroutines and channels make it a favorite for
-            cloud services, CLIs, and networking. A minimal type system and garbage collection keep programs simple and
-            maintainable.
+            <strong>Go</strong> (Golang) focuses on simplicity, fast compilation, and highly concurrent services. The language removes many
+            footguns—no header files, no inheritance hierarchies, no complicated generics until recently—favoring composition, small
+            interfaces, and a standard toolchain that “just works.” Goroutines multiplex across OS threads and communicate over channels,
+            enabling scalable pipelines and servers with back‑pressure. A strong standard library provides HTTP, crypto, profiling, and
+            cross‑platform builds out of the box. The module system brought dependable dependency management, and recent generics support
+            improves library ergonomics without abandoning Go’s minimalist ethos. Go’s sweet spot is cloud infrastructure—CLIs, networked
+            services, Kubernetes operators—where readability and deployment velocity trump maximal abstraction. With a single statically
+            linked binary and predictable memory use, Go remains a pragmatic choice for teams shipping APIs and platform tools.
         </div>
         <div>
-            <strong>Haskell</strong> is a purely functional language with lazy evaluation and a powerful static type system. Typeclasses,
-            higher‑order functions, and algebraic data types enable expressive, safe designs. While the learning curve is
-            real, Haskell excels where correctness, concurrency, and composability are paramount.
+            <strong>Haskell</strong> is a purely functional language renowned for expressive types and equational reasoning. Laziness (non‑strict
+            evaluation) enables modularity and infinite structures but requires care with performance; profiling and strictness
+            annotations help tame space leaks. Algebraic data types, pattern matching, and typeclasses allow precise modeling of
+            problems, while features like higher‑kinded types and monads structure effects such as I/O, concurrency, and state.
+            Libraries like QuickCheck encourage property‑based testing that complements unit tests with randomized counterexamples.
+            Haskell’s compiler, GHC, delivers sophisticated optimization and a rich extension ecosystem, supporting everything from web
+            services (Yesod, Servant) to compilers and research tools. The learning curve is real, yet the payoff is maintainable,
+            composable programs where many errors are caught at compile time and refactors feel predictable. For teams emphasizing
+            correctness and abstraction, Haskell remains a compelling choice.
         </div>
         <div>
-            <strong>Icon</strong> is known for goal‑directed evaluation and backtracking, features that make string processing and
-            search problems concise. Generators yield multiple results, and expressions succeed or fail rather than just
-            return values. Its descendant, Unicon, extends Icon with objects and systems facilities.
+            <strong>Icon</strong> explored goal‑directed evaluation: expressions succeed or fail, and generators can produce multiple results
+            that backtrack automatically. This model makes pattern search, string scanning, and combinatorial exploration concise,
+            contrasting with conventional control flow. Icon’s data types and built‑ins catered to text processing and experimental
+            algorithms, and its execution semantics inspired later work in logic and constraint programming. Unicon extended the
+            language with objects and systems features to build practical applications while preserving the expressive core. Though niche
+            today, Icon’s ideas anticipate modern combinators and iterator protocols; they remind us that revisiting evaluation strategy
+            can unlock new ways to think about problems, not just new syntax.
         </div>
         <div>
-            <strong>Java</strong> popularized “write once, run anywhere” on the JVM with automatic memory management and a massive
-            ecosystem. From enterprise servers to Android’s early app model, Java’s tooling and libraries made it a
-            default choice for large teams. Modern releases add lambdas, modules, records, and pattern matching.
+            <strong>Java</strong> popularized “write once, run anywhere” via the JVM and a comprehensive class library, propelling cross‑platform
+            enterprise software and early mobile apps. Automatic memory management reduced whole classes of errors, while checked
+            exceptions, interfaces, and a vast ecosystem of frameworks (Spring, Hibernate) shaped large‑team development. The language
+            has modernized steadily—lambdas and streams in Java 8, modules in 9, var, records, sealed classes, pattern matching, and a
+            preview of virtual threads (Project Loom) that promises lightweight concurrency akin to goroutines or green threads. JIT and
+            AOT technologies (HotSpot, GraalVM) deliver impressive performance, and the JVM now hosts many languages—from Kotlin and
+            Scala to Clojure—broadening the platform’s reach. Java’s durability comes from stable tooling, predictable evolution, and a
+            disciplined compatibility story that lets decade‑old code still compile, making it a safe foundation for critical systems.
+        </div>
+    </section>
+
+    <section class="countries">
+        <div>
+            <strong>Argentina</strong> stretches from the subtropical north to the windswept plains of Patagonia and the icy Andes of Tierra
+            del Fuego, encompassing pampas grasslands, arid high plateaus, and temperate wine valleys. Buenos Aires, the capital,
+            fuses European architecture with a distinctly porteño rhythm shaped by cafés, literature, and tango salons; inland cities
+            like Córdoba and Mendoza anchor education and viticulture. Agriculture—soy, corn, wheat, and world‑famous beef—remains a
+            pillar, while shale resources in Vaca Muerta promise long‑term energy potential. A skilled services sector, creative
+            industries, and a resilient tech scene in places like Palermo’s “Distrito Audiovisual” round out the economy, even as
+            inflation and debt cycles pose recurring challenges. Argentina’s cultural identity is a tapestry of Indigenous heritage,
+            Spanish and Italian immigration, and Afro‑Argentine influences, expressed in music from folklore to rock nacional.
+            Football is a national passion, celebrated in neighborhood clubs and on global stages. Culinary traditions run from
+            empanadas and asado to mate shared among friends. In the south, glaciers calve into turquoise lakes beneath condor‑patrolled
+            peaks, while the northeast’s Iguazú Falls thunder through lush subtropical forest. This geographic breadth and cultural
+            depth give Argentina a distinctive voice in Latin America and a strong tourism draw year‑round.
+        </div>
+        <div>
+            <strong>Brazil</strong> is South America’s largest nation, stretching from the equatorial Amazon to the temperate pampas of the
+            south, with Atlantic beaches and mountainous interiors binding a continent‑sized economy. Portuguese unifies a diverse
+            society whose music—samba, bossa nova, funk carioca—and regional cuisines reflect Indigenous, African, and European roots.
+            The Amazon Basin, a biodiversity powerhouse and global carbon sink, sits at the center of environmental debates over
+            conservation, sustainable development, and the livelihoods of forest communities. Brazil is a top producer of coffee,
+            soybeans, sugarcane, and beef, and a major exporter of iron ore and agricultural commodities; hydropower provides much of
+            its electricity, complemented by growing wind and solar. Megacities like São Paulo and Rio de Janeiro face challenges of
+            transit, housing, and inequality, yet incubate finance, creative industries, and cutting‑edge tech. The country’s federal
+            system grants significant autonomy to states and municipalities, fostering policy experimentation. From the Cerrado’s farm
+            frontier to the maritime oil fields of the pre‑salt layer, Brazil’s development choices reverberate globally—balancing
+            growth with climate commitments, and social inclusion with competitiveness in a rapidly changing world.
+        </div>
+        <div>
+            <strong>Canada</strong> spans six time zones and three oceans, encompassing boreal forests, prairie grasslands, rugged coasts, and
+            Arctic tundra. Most people live along the southern corridor near the U.S. border, in metropolitan regions such as Toronto,
+            Montréal, and Vancouver that serve as gateways for immigration and trade. A bilingual federation, Canada recognizes English
+            and French and is advancing reconciliation with First Nations, Inuit, and Métis through treaty modernization, language
+            revitalization, and self‑governance initiatives. The economy blends natural resources—energy, mining, forestry—with advanced
+            manufacturing, finance, and a fast‑growing technology sector known for AI research and clean‑tech startups. Public
+            healthcare, universal in scope, coexists with provincial experimentation in service delivery. Climate priorities include
+            decarbonizing electricity, protecting boreal carbon stores, and adapting northern infrastructure to thawing permafrost.
+            Cultural life is vibrant and regionally distinct, from Atlantic folk traditions to West Coast film and Indigenous art. With
+            strong institutions and open trade, Canada positions itself as a bridge between North American markets and broader
+            multilateral cooperation.
+        </div>
+        <div>
+            <strong>Denmark</strong> combines medieval streetscapes and contemporary minimalism with a high‑trust society and robust welfare
+            state. Copenhagen’s bike lanes and harbor baths symbolize a pragmatic urbanism that prioritizes livability, while Danish
+            design—furniture, audio, and architecture—marries craftsmanship with clean lines. As a pioneer in wind power, Denmark is
+            scaling offshore farms and green hydrogen, targeting deep decarbonization alongside district heating and energy efficiency.
+            A constitutional monarchy with a unicameral parliament, it emphasizes consensus politics and social safety nets financed by
+            broad‑based taxation. Maritime shipping, pharmaceuticals, and advanced foods complement small and medium manufacturers rooted
+            in regional clusters. Cultural notions of hygge capture everyday coziness, yet the country is outward‑looking through EU
+            engagement and development aid. From Jutland’s dunes to Zealand’s beech forests and island villages, Denmark balances
+            heritage with innovation, using human‑centered design to tackle climate, mobility, and housing challenges.
+        </div>
+        <div>
+            <strong>Egypt</strong> centers on the Nile, whose ribbon of green cuts through desert and has sustained civilizations for millennia.
+            The legacy of ancient kingdoms endures in Giza’s pyramids, Saqqara’s step tombs, and Luxor’s monumental temples, drawing
+            visitors alongside museums that curate new archaeological finds. Cairo, a megacity on the move, anchors media, education,
+            and industry for the Arab world, even as it grapples with congestion, air quality, and housing demand. The Suez Canal, a
+            strategic link in global shipping, generates foreign currency and has been expanded to handle larger vessels. Agriculture in
+            the Nile Delta and reclaimed desert relies on complex water management shaped by the Aswan High Dam and upstream
+            negotiations. Energy diversification includes natural gas fields like Zohr and growing solar capacity in projects such as
+            Benban. Contemporary culture blends Arabic language and Islamic and Coptic heritage with modern film and music scenes.
+            Demographic pressures and climate risks—salinization and sea‑level rise in the Delta—make sustainable planning a national
+            priority, tying Egypt’s future closely to the health of the Nile and the stability of its wider region.
+        </div>
+        <div>
+            <strong>France</strong> is a cultural and economic heavyweight, from Parisian haute couture and world‑class museums to regional
+            identities expressed in language, cuisine, and landscape. The economy mixes aerospace, nuclear energy, agriculture, luxury
+            goods, and tourism, supported by fast rail (TGV) and dense logistics. About two‑thirds of electricity comes from nuclear
+            reactors, enabling low‑carbon power while debates continue over the future energy mix and reactor life extensions. The
+            republic’s principles of laïcité and universalism shape public life and education policy, sometimes in tension with local
+            expressions of community and faith. As a founding member of the EU and a permanent member of the UN Security Council,
+            France wields diplomatic influence out of proportion to its size, backed by scientific research, space ambitions linked to
+            the Kourou spaceport in French Guiana, and a prolific creative sector. From Brittany’s coasts and the Loire châteaux to the
+            Alps and Provence’s lavender fields, the country’s geography frames products protected by appellations—from Champagne to
+            Roquefort—anchoring enduring culinary traditions.
+        </div>
+        <div>
+            <strong>Ghana</strong> sits on West Africa’s Gulf of Guinea, known for stable democracy, vibrant markets, and a friendly, entrepreneurial
+            spirit. Accra’s tech hubs and arts venues coexist with historic forts along the coast, reminders of the Atlantic trade that
+            reshaped continents. The economy rests on cocoa, gold, oil from offshore fields like Jubilee, and a diversified services
+            sector. Kente weaving, Adinkra symbols, and festivals such as Homowo express cultural pride across Akan, Ewe, Ga, and
+            northern communities. Music—from highlife to afrobeats—travels regionally and globally. Electrification has expanded via the
+            Akosombo and Bui dams and growing solar projects, while power reliability and grid losses remain policy targets. Education
+            initiatives, including free senior high school, aim to broaden opportunity. Ghana is investing in value‑added processing of
+            cocoa and cashews and in logistics around the Port of Tema to boost exports. In tourism, Cape Coast Castle and Kakum
+            National Park’s canopy walk pair history with biodiversity. The nation’s foreign policy favors regional stability through
+            ECOWAS, positioning Ghana as a bridge between West Africa’s anglophone and francophone spheres.
+        </div>
+        <div>
+            <strong>Hungary</strong>, a landlocked country in the Carpathian Basin, blends Central European and unique Magyar traditions. Budapest,
+            bisected by the Danube and linked by iconic bridges, is famed for thermal baths, Art Nouveau architecture, and a lively
+            café culture. Hungarian, a Uralic language, stands apart from neighboring Slavic and Germanic tongues, shaping literature
+            and identity. The economy features strong automotive and electronics supply chains around Győr and other industrial hubs,
+            alongside agriculture and a growing services sector. Tokaj’s aszú wines and paprika‑rich cuisine—goulash, lángos—define
+            distinctive tastes. A member of the EU and NATO, Hungary benefits from integrated markets and infrastructure, though
+            political debates over media, judiciary, and rule‑of‑law standards have sharpened in recent years. Plains of the Great
+            Hungarian Steppe (Puszta) host traditional horsemanship and protected grassland ecosystems. Tourism extends to Lake Balaton
+            and wine regions beyond Tokaj. With investments in logistics and rail, Hungary leverages its crossroads position between
+            Western Europe and the Balkans to attract manufacturing and trade.
+        </div>
+        <div>
+            <strong>India</strong> is a vast federal union of states and languages, home to over a billion people and a rapidly evolving economy.
+            The services sector—IT, business process management, and startups—anchors exports from hubs like Bengaluru, Hyderabad, and
+            Gurugram, while manufacturing pushes ahead under programs targeting electronics, mobility, and renewable energy. UPI
+            digital payments knit together street vendors and enterprises in a real‑time network that has transformed daily commerce.
+            Agriculture still employs many and hinges on the monsoon, with logistics, cold chains, and irrigation modernization improving
+            resilience. Cultural diversity is immense—multiple scripts, classical dance forms, film industries from Bollywood to
+            regional cinemas, and cuisines that vary with climate and history. Democratic institutions manage elections on an unmatched
+            scale, while policymakers weigh growth, inclusion, and environmental stewardship. Ambitions in space (ISRO’s lunar and
+            planetary missions), pharmaceuticals, and green hydrogen reflect technological momentum. Urban India tackles transit, air
+            quality, and housing, and rural development focuses on health, sanitation, and connectivity. As a G20 member and a bridge
+            across the Global South, India’s choices ripple through global supply chains and climate trajectories.
+        </div>
+        <div>
+            <strong>Japan</strong>, an archipelago along the Pacific Ring of Fire, marries advanced technology with refined traditions. Dense urban
+            regions—Tokyo, Osaka, Nagoya—are linked by Shinkansen high‑speed rail, while regional towns sustain craft industries and
+            agriculture. An aging, shrinking population drives innovation in robotics, healthcare, and productivity, even as policymakers
+            encourage workforce participation and selective immigration. Manufacturing excellence in autos, electronics, and precision
+            components rests on lean methods and supplier networks that emphasize quality. Cultural exports—from anime and games to
+            cuisine—carry soft power worldwide; UNESCO‑recognized rituals and festivals continue alongside contemporary art and design.
+            Japan’s energy mix has evolved since Fukushima, balancing safety, climate targets, and supply security through a combination
+            of efficiency, renewables, LNG, and a debated role for nuclear. Earthquake‑resilient engineering and disaster preparedness
+            shape infrastructure and community drills. From Hokkaidō’s snows to Okinawa’s coral reefs, landscapes frame regional
+            specialties like ramen styles, wagyū, and traditional sweets, illustrating a country that blends innovation with continuity.
         </div>
     </section>
 

@@ -11,19 +11,19 @@ body {
 section {
     display: flex;
     flex-direction: row;
-    gap: 1cm;
+    gap: 0.5cm;
 }
 
-/* Monospaced section variant */
-.mono > div, .mono div {
+.mono > div {
     font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     line-height: 1.5;
-    text-align: start;
+    font-size: 0.9rem;
 }
 
 section > div {
     width: 8cm;
     min-width: 8cm;
+    min-height: 15cm;
     max-height: 15cm;
     overflow-y: scroll;
     background-color: #f6f6f6;
