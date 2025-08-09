@@ -1,0 +1,29 @@
+body {
+    overflow: auto;
+    padding: 0.5cm;
+    display: flex;
+    flex-direction: row;
+    gap: 1cm;
+    font-family: 'Source Sans 3', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    gap: 1cm;
+}
+
+section > div {
+    width: 8cm;
+    max-height: 15cm;
+    overflow-y: scroll;
+    text-align: justify;
+    background-color: #f6f6f6;
+    padding: 0.25cm;
+}
+
+strong {
+    font-weight: 700;
+    text-transform: uppercase;
+}
