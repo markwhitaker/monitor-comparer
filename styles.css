@@ -25,7 +25,7 @@ section > div {
     min-width: 8cm;
     min-height: 15cm;
     max-height: 15cm;
-    overflow-y: scroll;
+    overflow-y: hidden;
     background-color: #f6f6f6;
     padding: 0.25cm;
 }
